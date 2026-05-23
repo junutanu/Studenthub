@@ -1,1 +1,90 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentHub Dashboard</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial;
+      background:#f5f7ff;
+    }
+
+    nav{
+      background:#2196f3;
+      padding:15px;
+      display:flex;
+      justify-content:space-between;
+      color:white;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:15px;
+    }
+
+    .container{
+      padding:40px;
+      text-align:center;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      margin:20px auto;
+      width:250px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button{
+      padding:10px 15px;
+      background:red;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div>StudentHub</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Welcome to Dashboard 🚀</h1>
+
+  <div class="card">
+    <h3>Study Materials</h3>
+    <p>All notes available soon</p>
+  </div>
+
+  <div class="card">
+    <h3>Downloads</h3>
+    <p>PDF files coming soon</p>
+  </div>
+
+  <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+function logout(){
+  alert("Logged out!");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
