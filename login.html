@@ -1,76 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - StudentHub</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+.then(() => {
 
-<body>
+  document.getElementById("msg").innerText = "Login Successful ✔";
 
-<div class="login-box">
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 800);
 
-  <h2>Student Login</h2>
-
-  <input type="email" id="email" placeholder="Enter Email">
-
-  <input type="password" id="password" placeholder="Enter Password">
-
-  <button onclick="loginUser()">Login</button>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getAuth,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-const firebaseConfig = {
-
-  apiKey: "AIzaSyBtgKd1TPar5u28Qnl0IofIN6YmSkMbfyo",
-  authDomain: "studenthub-ce1ed.firebaseapp.com",
-  projectId: "studenthub-ce1ed",
-  storageBucket: "studenthub-ce1ed.firebasestorage.app",
-  messagingSenderId: "1034161999610",
-  appId: "1:1034161999610:web:dc06e123040c0df72f4343"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-window.loginUser = function(){
-
-  let email = document.getElementById("email").value;
-
-  let password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-
-  .then(() => {
-
-    alert("Login Successful");
-
-    window.location.href = "index.html";
-
-  })
-
-  .catch((error) => {
-
-    alert(error.message);
-
-  });
-
-}
-
-</script>
-
-</body>
-</html>
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+})
