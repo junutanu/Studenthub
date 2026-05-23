@@ -1,11 +1,62 @@
-<section class="hero">
 
-  <h2>Welcome to StudentHub</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudentHub Login</title>
+</head>
+<body>
 
-  <p>
-    Notes, PYQ, AI tools and placement preparation in one platform.
-  </p>
+<h2>Login</h2>
 
-  <button>Get Started</button>
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
 
-</section>
+<button onclick="signup()">Sign Up</button>
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.signup = function () {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+
+    createUserWithEmailAndPassword(auth, email, pass)
+      .then(() => {
+        document.getElementById("msg").innerText = "Signup Successful!";
+      })
+      .catch(e => {
+        document.getElementById("msg").innerText = e.message;
+      });
+  }
+
+  window.login = function () {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, pass)
+      .then(() => {
+        document.getElementById("msg").innerText = "Login Successful!";
+      })
+      .catch(e => {
+        document.getElementById("msg").innerText = e.message;
+      });
+  }
+</script>
+
+</body>
+</html>
