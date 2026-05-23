@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>StudentHub Login</title>
+  <title>Login</title>
 </head>
 <body>
 
-<h2>StudentHub Login</h2>
+<h2>Login</h2>
 
 <input type="email" id="email" placeholder="Email"><br><br>
 <input type="password" id="password" placeholder="Password"><br><br>
 
-<button onclick="signup()">Sign Up</button>
 <button onclick="login()">Login</button>
 
 <p id="msg"></p>
 
 <script type="module">
 
-// Firebase imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
+import { getAuth, signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// 🔥 Firebase config (YOUR PROJECT)
 const firebaseConfig = {
   apiKey: "AIzaSyBtgKd1TPar5u28Qnl0IofIN6YmSkMbfyo",
   authDomain: "studenthub-ce1ed.firebaseapp.com",
@@ -33,27 +29,9 @@ const firebaseConfig = {
   appId: "1:1034161999610:web:dc06e123040c0df72f4343"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// 🔥 Signup
-window.signup = function () {
-
-  let email = document.getElementById("email").value;
-  let pass = document.getElementById("password").value;
-
-  createUserWithEmailAndPassword(auth, email, pass)
-    .then(() => {
-      document.getElementById("msg").innerText = "Signup Successful ✔";
-    })
-    .catch((error) => {
-      document.getElementById("msg").innerText = error.message;
-    });
-
-};
-
-// 🔥 Login
 window.login = function () {
 
   let email = document.getElementById("email").value;
@@ -61,17 +39,15 @@ window.login = function () {
 
   signInWithEmailAndPassword(auth, email, pass)
     .then(() => {
-
       document.getElementById("msg").innerText = "Login Successful ✔";
 
-      // 👉 redirect to dashboard
       setTimeout(() => {
-        window.location.href = "dashboard.html";
+        window.location.href = "./dashboard.html";
       }, 800);
 
     })
-    .catch((error) => {
-      document.getElementById("msg").innerText = error.message;
+    .catch(e => {
+      document.getElementById("msg").innerText = e.message;
     });
 
 };
