@@ -87,4 +87,10 @@ function logout(){
 
 </body>
 </html>
+.then(() => {
+  document.getElementById("msg").innerText = "Login Successful ✔";
 
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 800);
+})
