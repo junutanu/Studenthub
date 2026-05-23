@@ -199,3 +199,32 @@ footer{
   background:#111;
   color:white;
 }
+.notes-section{
+  padding:50px;
+  text-align:center;
+}
+
+.notes-container{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.note-card{
+  background:white;
+  width:250px;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.note-card button{
+  padding:10px 20px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
